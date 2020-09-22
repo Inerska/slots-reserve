@@ -2,13 +2,27 @@ package main
 
 import (
 	"./database"
-	"github.com/prometheus/common/log"
+	"fmt"
+	"log"
 	"net/http"
 )
 
 func main() {
-	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("./static"))))
+	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+		http.ServeFile(writer, request, "static/index.html")
+	})
+	http.HandleFunc("/hey", func(writer http.ResponseWriter, request *http.Request) {
+		fmt.Fprintf(writer, "Hey")
+		db := database.EtablishSQLConnexion("localhost", "root", "", "mysql", "test")
+		defer db.Close()
+		insert, err := db.Query("CREATE TABLE IF NOT EXISTS users(id INT, NAME VARCHAR(50));")
 
-	db := database.EtablishSQLConnexion("localhost", "root", "root", "mysql", 8080)
-	_ = db.Close()
+		// if there is an error inserting, handle it
+		if err != nil {
+			panic(err.Error())
+		}
+		// be careful deferring Queries if you are using transactions
+		defer insert.Close()
+	})
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
