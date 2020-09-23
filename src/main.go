@@ -22,5 +22,8 @@ func main() {
 		}
 		defer insert.Close()
 	})
+	http.HandleFunc("/housekeeping", func(writer http.ResponseWriter, request *http.Request) {
+		http.ServeFile(writer, request, "static/housekeeping/index.html")
+	})
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
