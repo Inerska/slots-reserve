@@ -17,11 +17,9 @@ func main() {
 		defer db.Close()
 		insert, err := db.Query("CREATE TABLE IF NOT EXISTS users(id INT, NAME VARCHAR(50));")
 
-		// if there is an error inserting, handle it
 		if err != nil {
 			panic(err.Error())
 		}
-		// be careful deferring Queries if you are using transactions
 		defer insert.Close()
 	})
 	log.Fatal(http.ListenAndServe(":8080", nil))
