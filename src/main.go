@@ -8,11 +8,8 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-		http.ServeFile(writer, request, "static/index.html")
-	})
+	http.Handle("/", http.FileServer(http.Dir("static")))
 	http.HandleFunc("/hey", func(writer http.ResponseWriter, request *http.Request) {
-		fmt.Fprintf(writer, "Hey")
 		db := database.EtablishSQLConnexion("localhost", "root", "", "mysql", "test")
 		defer db.Close()
 		insert, err := db.Query("CREATE TABLE IF NOT EXISTS users(id INT, NAME VARCHAR(50));")
@@ -22,8 +19,11 @@ func main() {
 		}
 		defer insert.Close()
 	})
-	http.HandleFunc("/housekeeping", func(writer http.ResponseWriter, request *http.Request) {
-		http.ServeFile(writer, request, "static/housekeeping/index.html")
-	})
+	http.HandleFunc("/housekeeping", housekeepingHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func housekeepingHandler(w http.ResponseWriter, r *http.Request)  {
+	http.ServeFile(w, r, "static/housekeeping/index.html")
+	http.FileServer(http.Dir("app"))
 }
