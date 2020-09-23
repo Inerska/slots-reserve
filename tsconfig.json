@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "watch": true,
+    "lib": ["dom", "es2017"]
+  }
+}
