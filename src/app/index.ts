@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const btn_housekeeping = document.getElementById("housekeeping-enter");
 
     btn_housekeeping.addEventListener("click", ()=>{
-       location.href = "/housekeeping";
+       location.href = "/src/static/housekeeping/";
         console.log("hey");
     });
 });
