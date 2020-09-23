@@ -2,7 +2,6 @@ package main
 
 import (
 	"./database"
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -23,7 +22,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func housekeepingHandler(w http.ResponseWriter, r *http.Request)  {
+func housekeepingHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/housekeeping/index.html")
 	http.FileServer(http.Dir("app"))
 }
