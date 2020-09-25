@@ -1,9 +1,20 @@
 // On document fully loaded
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Hey 1");
-    var btn_housekeeping = document.getElementById("housekeeping-enter");
-    btn_housekeeping.addEventListener("click", function () {
+document.addEventListener("DOMContentLoaded", () => {
+    const btn_housekeeping = document.getElementById("housekeeping-enter");
+    const btn_formvalidate = document.getElementById("validate_form");
+    const modal_delete = document.querySelector(".delete");
+    const modal = document.getElementById("creneaux-modal");
+    const modal_cancel = document.getElementById("modal-cancel");
+    const modal_validation = document.getElementById("modal-validate");
+    [modal_cancel, modal_validation, modal_delete, btn_formvalidate].forEach(selector => {
+        selector.addEventListener("click", e => {
+            e.preventDefault();
+            modal.classList.toggle("is-active");
+            document.getElementsByTagName("html")[0].classList.toggle("is-clipping");
+        });
+    });
+    btn_housekeeping.addEventListener("click", () => {
         location.href = "/housekeeping";
-        console.log("hey");
     });
 });
+//# sourceMappingURL=index.js.map
