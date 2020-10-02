@@ -1,4 +1,4 @@
 AuthName "Administration restreinte aux clients"
 AuthType Basic
-AuthUserFile ".htpasswd"
+AuthUserFile "C:\UwAmp\www\src\public\housekeeping\.htpasswd"
 Require valid-user
