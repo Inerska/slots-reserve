@@ -1,3 +1,5 @@
 <?php
 
-$pdo = new PDO();
+require '../class/mysqlhandler.php';
+
+$bd = new SQLConnexion();

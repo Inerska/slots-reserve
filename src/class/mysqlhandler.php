@@ -1,7 +1,10 @@
 <?php
 
 
-class MysqlConnexion
+/**
+ * Class SQLConnexion
+ */
+class SQLConnexion
 {
     private
         $m_type,
@@ -11,17 +14,30 @@ class MysqlConnexion
         $m_pass,
         $m_instance;
 
-    public function __construct($type, $host, $db, $user, $pass)
+    /**
+     * MysqlConnexion constructor.
+     * @param string $type
+     * @param string $host
+     * @param string $db
+     * @param string $user
+     * @param string $pass
+     */
+    public function __construct($type = "mysql", $host, $db, $user, $pass)
     {
-        $m_type = $type;
-        $m_host = $host;
-        $m_db = $db;
-        $m_user = $user;
-        $m_pass = $pass;
+        $this->m_type = $type;
+        $this->m_host = $host;
+        $this->m_db = $db;
+        $this->m_user = $user;
+        $this->m_pass = $pass;
         try {
             $this->m_instance = new PDO("{$type}:host={$host};dbname={$db}", $user, $pass);
         } catch (Exception $exception) {
             print_r("Error during the mysql connexion : {$exception->getMessage()}.");
         }
+    }
+
+    public function __destruct()
+    {
+        $this->m_instance = null;
     }
 }
