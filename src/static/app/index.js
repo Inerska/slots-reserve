@@ -26,12 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             headers: {
                 'Content-Type': 'application/json'
-            },
-            success: result => {
-                alert("Success");
-            },
-            error: result => {
-                alert("Error");
             }
         });
     });
