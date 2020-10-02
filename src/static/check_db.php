@@ -1,5 +1,5 @@
 <?php
 
-require '../class/mysqlhandler.php';
+require '../controller/mysqlhandler.php';
 
 $bd = new SQLConnexion();
