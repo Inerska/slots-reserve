@@ -30,7 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-$(document).on("contextmenu", e => {
-    e.preventDefault();
-});
 //# sourceMappingURL=index.js.map

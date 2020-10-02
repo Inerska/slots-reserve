@@ -27,14 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             data: {
                 title: "something"
             },
-            headers:{
-              'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             }
         });
     });
 
-});
-
-$(document).on("contextmenu", e=>{
-   e.preventDefault();
 });
