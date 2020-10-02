@@ -6,7 +6,8 @@ class InputGuard
     function __construct($targetinput)
     {
         if (isset($targetinput)) {
-            print empty($targetinput) ? "" : $targetinput;
+            parse_str($targetinput, $output);
+            print $output['title'];
         }
     }
 }

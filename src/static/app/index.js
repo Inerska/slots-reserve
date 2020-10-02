@@ -17,7 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "/housekeeping";
     });
     btn_formvalidate.addEventListener("click", () => {
-        alert($('modal-cancel').val());
+        let request = $.post({
+            type: "POST",
+            contentType: "json",
+            url: "../vue/post-reservation.php",
+            data: {
+                title: "something"
+            },
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            success: result => {
+                alert("Success");
+            },
+            error: result => {
+                alert("Error");
+            }
+        });
     });
 });
 //# sourceMappingURL=index.js.map

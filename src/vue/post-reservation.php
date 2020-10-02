@@ -1,7 +1,7 @@
 <?php
 
+
 include "../class/inputguard.php";
 
-var_dump($_POST);
-$ig = new InputGuard($_POST);
+$ig = new InputGuard(file_get_contents('php://input'));
 
