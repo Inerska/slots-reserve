@@ -16,6 +16,8 @@ class SQLConnexion
 
     /**
      * MysqlConnexion constructor.
+     *
+     * Returns a new PDO instance.
      * @param string $type
      * @param string $host
      * @param string $db

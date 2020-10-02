@@ -8,6 +8,8 @@ class InputGuard
 {
     /**
      * InputGuard constructor.
+     *
+     * Returns a safe output from input.
      * @param string $targetinput
      */
     function __construct($targetinput)
