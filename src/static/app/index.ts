@@ -19,4 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "/housekeeping";
     });
 
+    btn_formvalidate.addEventListener("click", () => {
+        alert($('modal-cancel').val())
+    });
+
 });
