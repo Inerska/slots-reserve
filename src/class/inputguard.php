@@ -1,8 +1,15 @@
 <?php
 
 
+/**
+ * Class InputGuard
+ */
 class InputGuard
 {
+    /**
+     * InputGuard constructor.
+     * @param string $targetinput
+     */
     function __construct($targetinput)
     {
         if (isset($targetinput)) {
