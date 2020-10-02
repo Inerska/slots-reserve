@@ -40,4 +40,28 @@ class SQLConnexion
     {
         $this->m_instance = null;
     }
+
+    /**
+     * @param $property
+     * @return mixed
+     */
+    public function __get($property)
+    {
+        if (property_exists($this, $property)) {
+            return $this->$property;
+        }
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     * @return $this
+     */
+    public function __set($name, $value)
+    {
+        if (property_exists($this, $name)) {
+            $this->$name->$value;
+        }
+        return $this;
+    }
 }
