@@ -12,41 +12,31 @@ abstract class CoreFill extends SQLConnexion
 
     public function __construct()
     {
-        $this->m_db = parent::__construct("mysql",
-            "localhost",
-            "test",
-            "root",
-            "root");
+        parent::__construct();
+    }
+
+    public function __destruct()
+    {
+        parent::__destruct();
     }
 
     /**
-     * @param $property
-     * @return mixed
+     * Create a new table within the database
+     * @param string $table
+     * @param string $content
      */
-    public function __get($property)
+    public static function up($table, $content)
     {
-        if (property_exists($this, $property)) {
-            return $this->$property;
-        }
+        parent::query("CREATE TABLE IF NOT EXISTS {$table}({$content});");
     }
 
     /**
-     * @param $name
-     * @param $value
-     * @return $this
+     * Drop table if exists
+     * @param string $table
      */
-    public function __set($name, $value)
+    public static function down($table)
     {
-        if (property_exists($this, $name)) {
-            $this->$name->$value;
-        }
-        return $this;
+        parent::query("DROP TABLE IF EXISTS {$table};");
     }
-
-//    public function loadchilds()
-//    {
-//        self:::();
-//        $this->buildagenda();
-//    }
 
 }
