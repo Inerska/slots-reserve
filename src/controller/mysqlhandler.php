@@ -12,6 +12,7 @@ class SQLConnexion
         $m_db,
         $m_user,
         $m_pass,
+        $m_charset,
         $m_instance;
 
     /**
@@ -23,16 +24,19 @@ class SQLConnexion
      * @param string $db
      * @param string $user
      * @param string $pass
+     * @param string $charset
      */
-    public function __construct($type = "mysql", $host, $db, $user, $pass)
+    public function __construct($type = "mysql", $host = "localhost", $db, $user, $pass, $charset = "utf-8")
     {
         $this->m_type = $type;
         $this->m_host = $host;
         $this->m_db = $db;
         $this->m_user = $user;
         $this->m_pass = $pass;
+        $this->m_charset = $charset;
+
         try {
-            $this->m_instance = new PDO("{$type}:host={$host};dbname={$db}", $user, $pass);
+            $this->m_instance = new PDO("{$type}:host={$host};dbname={$db};charset={$charset}", $user, $pass);
         } catch (Exception $exception) {
             print_r("Error during the mysql connexion : {$exception->getMessage()}.");
         }
@@ -65,5 +69,19 @@ class SQLConnexion
             $this->$name->$value;
         }
         return $this;
+    }
+
+    /**
+     * Prepare query to preventing from SQL injection
+     * @param string $request
+     * @param string $lvalue
+     * @param T $rvalue
+     * @param VAL_T $rvalue_t
+     */
+    public function query($request, $lvalue, $rvalue, $rvalue_t)
+    {
+        $buffer = $this->m_instance->prepare($request);
+        $buffer->bindParam($lvalue, $rvalue, $rvalue_t);
+        $buffer->execute();
     }
 }
