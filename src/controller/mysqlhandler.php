@@ -72,8 +72,8 @@ class SQLConnexion
      * Prepare query to preventing from SQL injection
      * @param string $request
      * @param string $lvalue
-     * @param T $rvalue
-     * @param VAL_T $rvalue_t
+     * @param mixed $rvalue
+     * @param mixed $rvalue_t
      */
     public function query($request, $lvalue = null, $rvalue = null, $rvalue_t = null)
     {
