@@ -11,7 +11,7 @@ class SQLConnexion
 
     public function __construct()
     {
-        $config = require "../config/config.php";
+        $config = require_once "../config/config.php";
 
         try {
             $this->m_instance = new PDO("{$config['type']}:host={$config['host']};dbname={$config['db']}", $config['user'], $config['pass']);
