@@ -16,7 +16,6 @@ class InputGuard
     {
         if (isset($targetinput)) {
             parse_str($targetinput, $output);
-            print $output['title'];
         }
     }
 }
