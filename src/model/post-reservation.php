@@ -3,8 +3,6 @@
 include "../controller/inputguard.php";
 require_once "../controller/mysqlhandler.php";
 
-$parse = new InputGuard(file_get_contents('php://input'));
-
 // Create SQL Connexion
 $db = new SQLConnexion();
 
@@ -34,4 +32,5 @@ $db->query("CREATE TABLE IF NOT EXISTS Agenda(
 	foreign key(id_client) references Client(id)
 );");
 
-
+$parse = InputGuard::parseRequest(file_get_contents('php://input'));
+$db->query("INSERT INTO client(firstname, lastname, phone)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]});");

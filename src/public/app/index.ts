@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const prename = $('#prename');
         const name = $('#lastname');
         const phone = $('#phone');
+
         let request = $.post({
             type: "POST",
             contentType: "json",

@@ -7,15 +7,15 @@
 class InputGuard
 {
     /**
-     * InputGuard constructor.
-     *
-     * Returns a safe output from input.
-     * @param string $targetinput
+     * Return parsed Ajax payload
+     * @param $request
+     * @return mixed
      */
-    function __construct($targetinput)
+    public static function parseRequest($request)
     {
-        if (isset($targetinput)) {
-            parse_str($targetinput, $output);
+        if (isset($request)) {
+            parse_str($request, $output);
+            return $output;
         }
     }
 }
