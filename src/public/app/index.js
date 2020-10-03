@@ -17,12 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "/housekeeping";
     });
     btn_formvalidate.addEventListener("click", () => {
+        const prename = $('#prename');
+        const name = $('#lastname');
+        const phone = $('#phone');
         let request = $.post({
             type: "POST",
             contentType: "json",
-            url: "../vue/post-reservation.php",
+            url: "../model/post-reservation.php",
             data: {
-                title: "something"
+                prename: prename.val(),
+                name: name.val(),
+                phone: phone.val()
             },
             headers: {
                 'Content-Type': 'application/json'
