@@ -7,33 +7,15 @@
 class SQLConnexion
 {
     private
-        $m_type,
-        $m_host,
-        $m_db,
-        $m_user,
-        $m_pass,
         $m_instance;
 
-    /**
-     * MysqlConnexion constructor.
-     *
-     * Returns a new PDO instance.
-     * @param string $type
-     * @param string $host
-     * @param string $db
-     * @param string $user
-     * @param string $pass
-     */
-    public function __construct($type = "mysql", $host = "localhost", $db, $user, $pass)
+    public function __construct()
     {
-        $this->m_type = $type;
-        $this->m_host = $host;
-        $this->m_db = $db;
-        $this->m_user = $user;
-        $this->m_pass = $pass;
+        $config = require "../config/config.php";
 
         try {
-            $this->m_instance = new PDO("{$type}:host={$host};dbname={$db}", $user, $pass);
+            $this->m_instance = new PDO("{$config['type']}:host={$config['host']};dbname={$config['db']}", $config['user'], $config['pass']);
+            $this->m_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $exception) {
             print_r("Error during the mysql connexion : {$exception->getMessage()}.");
         }
@@ -72,10 +54,10 @@ class SQLConnexion
      * Prepare query to preventing from SQL injection
      * @param string $request
      * @param string $lvalue
-     * @param mixed $rvalue
+     * @param mixed $rvalue &
      * @param mixed $rvalue_t
      */
-    public function query($request, $lvalue = null, $rvalue = null, $rvalue_t = null)
+    public function query($request, $lvalue = null, &$rvalue = null, $rvalue_t = null)
     {
         $buffer = $this->m_instance->prepare($request);
         if (!(is_null($lvalue) || is_null($rvalue_t) || is_null($rvalue_t)))
