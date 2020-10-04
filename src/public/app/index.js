@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         dateFormat: "Y-m-d H:i"
     });
 
-
     const btn_housekeeping = document.getElementById("housekeeping-enter");
     const btn_formvalidate = document.getElementById("validate_form");
     const modal_delete = document.querySelector(".delete");
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         // let request = $.post({
         //     type: "POST",
-        //     contentType: "json",
+        //     con'tentType: "json",
         //     url: "../model/post-reservation.php",
         //     data: {
         //         prename: prename,
