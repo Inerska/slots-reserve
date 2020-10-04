@@ -1,6 +1,15 @@
 // On document fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    $(".calendario").flatpickr();
+    $(".calendario").flatpickr({
+        minDate: "today",
+        maxDate: new Date().fp_incr(30),
+        enableTime: true,
+        minTime: "08:00",
+        maxTime: "18:00",
+        dateFormat: "Y-m-d H:i"
+    });
+
+
     const btn_housekeeping = document.getElementById("housekeeping-enter");
     const btn_formvalidate = document.getElementById("validate_form");
     const modal_delete = document.querySelector(".delete");

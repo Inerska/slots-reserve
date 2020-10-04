@@ -26,10 +26,14 @@ session_start();
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-            <div id="calendar"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid culpa cumque dolorem
-                est incidunt laborum laudantium libero, magnam maxime, nulla perferendis quas quidem repellat sapiente
-                ut voluptate voluptatum.</p>
+            <div class="field">
+                <p class="control has-icons-right">
+                    <input class="input calendario" type="email" placeholder="Créaneau">
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-calendar"></i>
+                    </span>
+                </p>
+            </div>
         </section>
         <footer class="modal-card-foot">
             <button class="button is-success" id="modal-validate">Valider</button>
@@ -93,8 +97,6 @@ session_start();
                 </div>
 
                 <button class="button is-primary is-light" id="validate_form">Valider</button>
-                <input class="calendario" data-date-format="d-m-y" />
-                <p>Hey hey hey</p>
             </div>
 
         </form>
