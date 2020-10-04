@@ -21,7 +21,11 @@ session_start();
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-            <!-- Content ... -->
+            <div class="field">
+                <div class="control is-expanded">
+                    <input class="input" type="text" id="prename" placeholder="Créneau">
+                </div>
+            </div>
         </section>
         <footer class="modal-card-foot">
             <button class="button is-success" id="modal-validate">Valider</button>

@@ -19,25 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "/housekeeping";
     });
 
-    btn_formvalidate.addEventListener("click", () => {
+    btn_formvalidate.addEventListener("click", e => {
         const prename = $('#prename').val();
         const name = $('#lastname').val();
         const phone = $('#phone').val();
 
         if (prename != "" || name != "" || phone != "") {
-            let request = $.post({
-                type: "POST",
-                contentType: "json",
-                url: "../model/post-reservation.php",
-                data: {
-                    prename: prename,
-                    name: name,
-                    phone: phone
-                },
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+            e.preventDefault();
+            // let request = $.post({
+            //     type: "POST",
+            //     contentType: "json",
+            //     url: "../model/post-reservation.php",
+            //     data: {
+            //         prename: prename,
+            //         name: name,
+            //         phone: phone
+            //     },
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // });
             modal.classList.toggle("is-active");
             document.getElementsByTagName("html")[0].classList.toggle("is-clipping");
         } else {
