@@ -17,22 +17,27 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "/housekeeping";
     });
     btn_formvalidate.addEventListener("click", () => {
-        const prename = $('#prename');
-        const name = $('#lastname');
-        const phone = $('#phone');
-        let request = $.post({
-            type: "POST",
-            contentType: "json",
-            url: "../model/post-reservation.php",
-            data: {
-                prename: prename.val(),
-                name: name.val(),
-                phone: phone.val()
-            },
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const prename = $('#prename').val();
+        const name = $('#lastname').val();
+        const phone = $('#phone').val();
+        if (prename != "" || name != "" || phone != "") {
+            let request = $.post({
+                type: "POST",
+                contentType: "json",
+                url: "../model/post-reservation.php",
+                data: {
+                    prename: prename,
+                    name: name,
+                    phone: phone
+                },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+        else {
+            alert("Nah, c'est vide mec");
+        }
     });
 });
 //# sourceMappingURL=index.js.map
