@@ -10,7 +10,12 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
 <div class="modal" id="creneaux-modal">
@@ -21,11 +26,10 @@ session_start();
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-            <div class="field">
-                <div class="control is-expanded">
-                    <input class="input" type="text" id="prename" placeholder="Créneau">
-                </div>
-            </div>
+            <div id="calendar"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid culpa cumque dolorem
+                est incidunt laborum laudantium libero, magnam maxime, nulla perferendis quas quidem repellat sapiente
+                ut voluptate voluptatum.</p>
         </section>
         <footer class="modal-card-foot">
             <button class="button is-success" id="modal-validate">Valider</button>
@@ -89,14 +93,16 @@ session_start();
                 </div>
 
                 <button class="button is-primary is-light" id="validate_form">Valider</button>
-
+                <input class="calendario" data-date-format="d-m-y" />
+                <script>
+                    $('.calendario').flatpickr();
+                </script>
+                <p>Hey hey hey</p>
             </div>
 
         </form>
     </div>
 </section>
-<script src="app/index.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="app/index.js"></script>
 </body>
 </html>

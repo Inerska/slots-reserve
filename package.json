@@ -1,0 +1,12 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "dependencies": {
+    "flatpickr": "^4.6.6",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/flatpickr": "^3.1.2",
+    "@types/jquery": "^3.5.1"
+  }
+}
