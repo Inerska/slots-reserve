@@ -50,14 +50,14 @@ session_start();
                     <div class="field-body">
 
                         <!--            Prénom            -->
-                        <div class="field">
+                        <div class="field field-prename">
                             <div class="control is-expanded">
                                 <input class="input" type="text" id="prename" placeholder="Prénom">
                             </div>
                         </div>
 
                         <!--            Nom            -->
-                        <div class="field">
+                        <div class="field field-name">
                             <div class="control is-expanded">
                                 <input class="input" type="text" id="lastname" placeholder="Nom">
                             </div>
@@ -68,7 +68,7 @@ session_start();
                 </div>
 
                 <!--            Phone number            -->
-                <div class="field">
+                <div class="field field-phone">
                     <div class="control is-expanded has-icons-left">
                         <input class="input" type="tel" id="phone" placeholder="Téléphone">
                         <span class="icon is-left">

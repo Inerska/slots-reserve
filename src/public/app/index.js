@@ -28,28 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "housekeeping";
     });
     btn_formvalidate.addEventListener("click", e => {
-        const prename = $('#prename').val();
-        const name = $('#lastname').val();
-        const phone = $('#phone').val();
-        if (prename != "" || name != "" || phone != "") {
-            e.preventDefault();
-            // let request = $.post({
-            //     type: "POST",
-            //     contentType: "json",
-            //     url: "../model/post-reservation.php",
-            //     data: {
-            //         prename: prename,
-            //         name: name,
-            //         phone: phone
-            //     },
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // });
+        const prename = $('#prename');
+        const name = $('#lastname');
+        const phone = $('#phone');
 
-        }
-        else {
-            alert("Nah, c'est vide mec");
-        }
+        if (prename.val() === "") $(".field-prename").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+        if (name.val() === "") $(".field-name").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+        if (phone.val() === "") $(".field-phone").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+        // if (prename !== "" || name !== "" || phone !== "") {
+        //     // let request = $.post({
+        //     //     type: "POST",
+        //     //     contentType: "json",
+        //     //     url: "../model/post-reservation.php",
+        //     //     data: {
+        //     //         prename: prename,
+        //     //         name: name,
+        //     //         phone: phone
+        //     //     },
+        //     //     headers: {
+        //     //         'Content-Type': 'application/json'
+        //     //     }
+        //     // });
+        //
+        // } else {
+        //     $(".field-prename").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+        // }
     });
 });
