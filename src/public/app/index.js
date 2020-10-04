@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     btn_housekeeping.addEventListener("click", () => {
-        location.href = "/housekeeping";
+        location.href = "housekeeping";
     });
     btn_formvalidate.addEventListener("click", e => {
         const prename = $('#prename').val();
