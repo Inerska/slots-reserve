@@ -94,15 +94,12 @@ session_start();
 
                 <button class="button is-primary is-light" id="validate_form">Valider</button>
                 <input class="calendario" data-date-format="d-m-y" />
-                <script>
-                    $('.calendario').flatpickr();
-                </script>
                 <p>Hey hey hey</p>
             </div>
 
         </form>
     </div>
 </section>
-<script type="text/javascript" src="app/index.js"></script>
+<script src="app/index.js"></script>
 </body>
 </html>

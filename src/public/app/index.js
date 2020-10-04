@@ -1,25 +1,13 @@
-import flatpickr from "flatpickr";
 // On document fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-
-
-
-    $('.flatpickr.js-flatpickr-dateTime, #calendar', {
-        enableTime: true,
-        time_24hr: true,
-        altInput: true,
-        altFormat: 'd M Y H:i',
-        dateFormat: 'Y-m-D H:i'
-    });
-
-
-
+    $(".calendario").flatpickr();
     const btn_housekeeping = document.getElementById("housekeeping-enter");
     const btn_formvalidate = document.getElementById("validate_form");
     const modal_delete = document.querySelector(".delete");
     const modal = document.getElementById("creneaux-modal");
     const modal_cancel = document.getElementById("modal-cancel");
     const modal_validation = document.getElementById("modal-validate");
+
     [modal_cancel, modal_validation, modal_delete, btn_formvalidate].forEach(selector => {
         selector.addEventListener("click", e => {
             e.preventDefault();
