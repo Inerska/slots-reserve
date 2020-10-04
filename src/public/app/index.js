@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("creneaux-modal");
     const modal_cancel = document.getElementById("modal-cancel");
     const modal_validation = document.getElementById("modal-validate");
-    [modal_cancel, modal_validation, modal_delete, btn_formvalidate].forEach(selector => {
+    [modal_cancel, modal_validation, modal_delete].forEach(selector => {
         selector.addEventListener("click", e => {
             e.preventDefault();
             modal.classList.toggle("is-active");
@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     'Content-Type': 'application/json'
                 }
             });
+            modal.classList.toggle("is-active");
+            document.getElementsByTagName("html")[0].classList.toggle("is-clipping");
         }
         else {
             alert("Nah, c'est vide mec");
