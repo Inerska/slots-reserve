@@ -28,30 +28,42 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "housekeeping";
     });
     btn_formvalidate.addEventListener("click", e => {
-        const prename = $('#prename');
-        const name = $('#lastname');
-        const phone = $('#phone');
+        const rValuesIDName = [
+            'prename',
+            'lastname',
+            'phone'
+        ];
+        const fieldValuesClassName = [
+            'field-prename',
+            'field-name',
+            'field-phone'
+        ];
 
-        if (prename.val() === "") $(".field-prename").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
-        if (name.val() === "") $(".field-name").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
-        if (phone.val() === "") $(".field-phone").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
-        // if (prename !== "" || name !== "" || phone !== "") {
-        //     // let request = $.post({
-        //     //     type: "POST",
-        //     //     contentType: "json",
-        //     //     url: "../model/post-reservation.php",
-        //     //     data: {
-        //     //         prename: prename,
-        //     //         name: name,
-        //     //         phone: phone
-        //     //     },
-        //     //     headers: {
-        //     //         'Content-Type': 'application/json'
-        //     //     }
-        //     // });
-        //
-        // } else {
-        //     $(".field-prename").append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
-        // }
+        for (let it = 0; it < rValuesIDName.length; ++it) {
+            errorIfNULLValue(rValuesIDName[it], fieldValuesClassName[it], false, true);
+        }
+        // let request = $.post({
+        //     type: "POST",
+        //     contentType: "json",
+        //     url: "../model/post-reservation.php",
+        //     data: {
+        //         prename: prename,
+        //         name: name,
+        //         phone: phone
+        //     },
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // });
     });
 });
+
+
+function errorIfNULLValue(rvalue, field, isRValClass = false, isFieldClass = false) {
+    let idSelector = $(isRValClass ? `.${rvalue}` : `#${rvalue}`);
+    let fieldSelector = $(isFieldClass ? `.${field}` : `#${field}`);
+
+    if (!idSelector.val()) {
+        fieldSelector.append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+    }
+}
