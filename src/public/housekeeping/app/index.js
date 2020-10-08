@@ -1,3 +1,5 @@
 $(document).ready(function() {
-    $('#agenda').fullCalendar({})
+    $('#agenda').fullCalendar({
+        locale: 'fr'
+    })
 });
