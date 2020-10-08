@@ -7,51 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Housekeeping</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.js'></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app/index.js"></script>
 </head>
 <body>
-<div class="table w-full h-screen">
-    <div class="table-row-group">
-        <div class="table-row">
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">Lundi</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 2</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">Cell 3</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Mardi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Mercredi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Jeudi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Vendredi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Samedi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Dimanche</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Mardi</div>
-            <div class="table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm">A cell with more content</div>
-            <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">Cell 6</div>
-        </div>
-    </div>
-</div>
+    <div id="agenda"></div>
 </body>
 </html>
