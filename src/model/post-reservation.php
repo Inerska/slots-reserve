@@ -33,4 +33,5 @@ $db->query("CREATE TABLE IF NOT EXISTS Agenda(
 );");
 
 $parse = InputGuard::parseRequest(file_get_contents('php://input'));
+var_dump($parse);
 $db->query("INSERT INTO client(firstname, lastname, phone)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]});");

@@ -41,19 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let it = 0; it < rValuesIDName.length; ++it) {
             errorIfNULLValue(rValuesIDName[it], fieldValuesClassName[it], false, true);
         }
-        // let request = $.post({
-        //     type: "POST",
-        //     con'tentType: "json",
-        //     url: "../model/post-reservation.php",
-        //     data: {
-        //         prename: prename,
-        //         name: name,
-        //         phone: phone
-        //     },
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // });
+        let request = $.post({
+            type: "POST",
+            contentType: "json",
+            url: "../model/post-reservation.php",
+            data: {
+                prename: $('#prename').val(),
+                name: $('#lastname').val(),
+                phone: $('#phone').val()
+            },
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     });
 });
 
