@@ -53,6 +53,7 @@ session_start();
                             <div class="control is-expanded">
                                 <input class="input" type="text" id="prename" placeholder="Prénom">
                             </div>
+                            <p class='help is-danger' id="alert-firstname"></p>
                         </div>
 
                         <!--            Nom            -->
@@ -61,6 +62,7 @@ session_start();
                                 <input class="input" type="text" id="lastname" placeholder="Nom">
                             </div>
                         </div>
+                        <p class='help is-danger' id="alert-lastname"></p>
                     </div>
 
 
@@ -74,6 +76,7 @@ session_start();
                             <i class="fas fa-mobile"></i>
                         </span>
                     </div>
+                    <p class='help is-danger' id="alert-phone"></p>
                 </div>
 
                 <!--            Baptême            -->

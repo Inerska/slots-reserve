@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
             'phone'
         ];
         const fieldValuesClassName = [
-            'field-prename',
-            'field-name',
-            'field-phone'
+            'alert-firstname',
+            'alert-lastname',
+            'alert-phone'
         ];
 
         for (let it = 0; it < rValuesIDName.length; ++it) {
-            errorIfNULLValue(rValuesIDName[it], fieldValuesClassName[it], false, true);
+            errorIfNULLValue(rValuesIDName[it], fieldValuesClassName[it], false, false);
         }
-        let phone = !isNaN($("#phone").val()) ? $("#phone").val() : $(".field-phone").append($("<p class='help is-danger'>Un numéro contient des CHIFFRES et non des LETTRES.</p>"));
+        let phone = !isNaN($("#phone").val()) ? $("#phone").val() : $(".alert-phone").text("Un numéro contient des CHIFFRES et non des LETTRES.");
         let request = $.post({
             type: "POST",
             contentType: "json",
@@ -64,6 +64,6 @@ function errorIfNULLValue(rvalue, field, isRValClass = false, isFieldClass = fal
     let fieldSelector = $(isFieldClass ? `.${field}` : `#${field}`);
 
     if (!idSelector.val()) {
-        fieldSelector.append($("<p class='help is-danger'>Le champ ne peut être vide.</p>"));
+        fieldSelector.text("Le champ ne peut être vide.");
     }
 }
