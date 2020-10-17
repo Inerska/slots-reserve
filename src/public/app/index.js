@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let it = 0; it < rValuesIDName.length; ++it) {
             errorIfNULLValue(rValuesIDName[it], fieldValuesClassName[it], false, true);
         }
+        let phone = !isNaN($("#phone").val()) ? $("#phone").val() : $(".field-phone").append($("<p class='help is-danger'>Un numéro contient des CHIFFRES et non des LETTRES.</p>"));
         let request = $.post({
             type: "POST",
             contentType: "json",
