@@ -23,11 +23,3 @@ function toggleModal(event) {
     modal.classList.toggle('pointer-events-none')
     $('body').classList.toggle('modal-active')
 }
-
-// Check if the inputs passed in parameters are empty
-function areAllInputsEmpty(...inputs) {
-    let bIsEmpty = false;
-
-    inputs.forEach((element) => bIsEmpty = element.length === 0);
-    return bIsEmpty;
-}
