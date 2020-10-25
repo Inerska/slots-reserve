@@ -22,11 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Toggle the modal passing the event instance
 function toggleModal(event) {
-    const modal = document.querySelector('.modal');
-    const body = document.querySelector('body');
+    if (areInputsNull()) {
+        const modal = document.querySelector('.modal');
+        const body = document.querySelector('body');
 
-    event.preventDefault();
-    modal.classList.toggle('opacity-0');
-    modal.classList.toggle('pointer-events-none');
-    body.classList.toggle('modal-active');
+        event.preventDefault();
+        modal.classList.toggle('opacity-0');
+        modal.classList.toggle('pointer-events-none');
+        body.classList.toggle('modal-active');
+    } else alert("Veuillez remplir tous les champs disponibles.");
+}
+
+
+// Are inputs null
+function areInputsNull() {
+    let isnull = true;
+    [$('#firstname'), $('#lastname'), $('#mail'), $('#phone-number')].forEach(input => {
+        if (input.val().length === 0) {
+            isnull = false
+        }
+    });
+    return isnull;
 }
