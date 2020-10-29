@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const reserv_btn = document.querySelector("#form_validate");
 
-    reserv_btn.addEventListener('click', send_ajax);
+    reserv_btn.addEventListener('click', areInputsNull);
 
 
     // Calendar instance
@@ -13,19 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-//
-// // Are inputs null
-// function areInputsNull() {
-//     let isnull = true;
-//     [$('#firstname'), $('#lastname'), $('#mail'), $('#phone-number')].forEach(input => {
-//         if (input.val().length === 0) {
-//             isnull = false
-//         }
-//     });
-//     return isnull;
-// }
-//
+
+// Are inputs null
+function areInputsNull() {
+    [$('#firstname'), $('#lastname'), $('#mail'), $('#phone-number')].forEach(input => {
+        if (input.val().length === 0) {
+            GetTipErrorMessage(input);
+        }
+    });
+}
+
+function GetTipErrorMessage(element) {
+    const parent = element.parent();
+    const tip = parent.children('.under_input');
+
+    tip.html("<i class=\"fas fa-exclamation-circle\"></i> Ce champs doit être renseigné.");
+}
+
 function send_ajax() {
+    areInputsNull();
     $.post({
         type: "POST",
         contentType: "json",
