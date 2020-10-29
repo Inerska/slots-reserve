@@ -45,9 +45,9 @@ function send_ajax() {
                 name: $('#lastname').val(),
                 mail: $('#mail').val(),
                 phone: $('#phone-number').val(),
-                activity: $('#activity').text(),
+                activity: document.getElementById('actvity').value,
                 date: $('.calendario').val(),
-                bapteme: $('#bapteme').val()
+                bapteme: document.getElementById('bapteme').checked
             },
             headers: {
                 'Content-Type': 'application/json'
