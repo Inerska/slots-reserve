@@ -1,25 +1,26 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     const reserv_btn = document.querySelector(".modal-open");
-//     const modal = document.querySelector(".modal");
-//     const close_modal = document.querySelectorAll('.modal-close');
-//     const post_pro = document.querySelector('.post');
-//
-//     // Event dispatcher
-//     reserv_btn.addEventListener('click', evt => toggleModal(evt));
-//     post_pro.addEventListener('click', send_ajax);
-//
-//     for (let i = 0; i < close_modal.length; i++) {
-//         close_modal[i].addEventListener('click', evt => toggleModal(evt));
-//     }
-//
-//     // Calendar instance
-//     $(".calendario").flatpickr({
-//         enableTime: true,
-//         minTime: "08:00",
-//         maxTime: "18:00",
-//         dateFormat: "Y-m-d H:i"
-//     });
-// });
+document.addEventListener("DOMContentLoaded", () => {
+    // const reserv_btn = document.querySelector(".modal-open");
+    // const modal = document.querySelector(".modal");
+    // const close_modal = document.querySelectorAll('.modal-close');
+    // const post_pro = document.querySelector('.post');
+    //
+    // // Event dispatcher
+    // reserv_btn.addEventListener('click', evt => toggleModal(evt));
+    // post_pro.addEventListener('click', send_ajax);
+    //
+    // for (let i = 0; i < close_modal.length; i++) {
+    //     close_modal[i].addEventListener('click', evt => toggleModal(evt));
+    // }
+
+    // Calendar instance
+    $(".calendario").flatpickr({
+        enableTime: true,
+        minTime: "08:00",
+        maxTime: "18:00",
+        dateFormat: "Y-m-d H:i"
+    });
+
+});
 //
 // // Toggle the modal passing the event instance
 // function toggleModal(event) {
