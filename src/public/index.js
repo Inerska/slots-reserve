@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         dateFormat: "Y-m-d H:i"
     });
 
+    $('.calendario').on('click', () => {
+        $('.calendario').val('');
+    })
 });
 //
 // // Toggle the modal passing the event instance
