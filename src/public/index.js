@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const reserv_btn = document.querySelector("#form_validate");
 
-    reserv_btn.addEventListener('click', areInputsNull);
+    reserv_btn.addEventListener('click', send_ajax);
 
 
     // Calendar instance
@@ -16,13 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Are inputs null
 function areInputsNull() {
+    let isnull = false;
     [$('#firstname'), $('#lastname'), $('#mail'), $('#phone-number')].forEach(input => {
         if (input.val().length === 0) {
             GetTipErrorMessage(input);
+            isnull = true;
         }
     });
+    return isnull;
 }
 
+// Just set error message under the user inputs when the inputs are null
 function GetTipErrorMessage(element) {
     const parent = element.parent();
     const tip = parent.children('.under_input');
@@ -31,22 +35,23 @@ function GetTipErrorMessage(element) {
 }
 
 function send_ajax() {
-    areInputsNull();
-    $.post({
-        type: "POST",
-        contentType: "json",
-        url: "../model/post-reservation.php",
-        data: {
-            prename: $('#firstname').val(),
-            name: $('#lastname').val(),
-            mail: $('#mail').val(),
-            phone: $('#phone-number').val(),
-            activity: $('#activity').text(),
-            date: $('.calendario').val(),
-            bapteme: $('#bapteme').val()
-        },
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    if(!areInputsNull()){
+        $.post({
+            type: "POST",
+            contentType: "json",
+            url: "../model/post-reservation.php",
+            data: {
+                prename: $('#firstname').val(),
+                name: $('#lastname').val(),
+                mail: $('#mail').val(),
+                phone: $('#phone-number').val(),
+                activity: $('#activity').text(),
+                date: $('.calendario').val(),
+                bapteme: $('#bapteme').val()
+            },
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
 }
