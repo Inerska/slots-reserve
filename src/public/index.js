@@ -50,9 +50,10 @@ function send_ajax() {
                 bapteme: document.getElementById('bapteme').checked
             },
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'charset': 'utf-8'
             }
         });
-        window.location.reload();
+        // window.location.reload();
     }
 }

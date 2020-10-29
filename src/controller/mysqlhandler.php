@@ -16,6 +16,7 @@ class SQLConnexion
         try {
             $this->m_instance = new PDO("{$config['type']}:host={$config['host']};dbname={$config['db']}", $config['user'], $config['pass']);
             $this->m_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->m_instance->exec('set names utf8');
         } catch (Exception $exception) {
             print_r("Error during the mysql connexion : {$exception->getMessage()}.");
         }
