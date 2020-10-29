@@ -31,11 +31,11 @@ function GetTipErrorMessage(element) {
     const parent = element.parent();
     const tip = parent.children('.under_input');
 
-    tip.html("<i class=\"fas fa-exclamation-circle\"></i> Ce champs doit être renseigné.");
+    tip.html("<i class=\"fas fa-exclamation-circle\"/> Ce champ doit être renseigné.");
 }
 
 function send_ajax() {
-    if(!areInputsNull()){
+    if (!areInputsNull()) {
         $.post({
             type: "POST",
             contentType: "json",
@@ -53,5 +53,6 @@ function send_ajax() {
                 'Content-Type': 'application/json'
             }
         });
+        window.location.reload();
     }
 }
