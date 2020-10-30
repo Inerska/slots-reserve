@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     let calendar_element = document.getElementById('calendar');
-    let calendar_event = new FullCalendar.Calendar(calendar_element);
+    const options = {
+        locale: 'fr',
+        initialView: 'timeGridWeek',
+        buttonText: {
+            today: "Aujourd\'hui"
+        }
+    }
+    let calendar_event = new FullCalendar.Calendar(calendar_element, options);
 
     calendar_event.render();
 });

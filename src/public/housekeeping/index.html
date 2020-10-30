@@ -6,10 +6,15 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="style.css" rel="stylesheet">
+    <link href="//unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="../lib/main.css" rel="stylesheet">
     <title>Housekeeping</title>
 </head>
 <body>
+<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 rounded border border-blue-500"
+        id="form_validate" type="button">
+    <span>Définir une permanence</span>
+</button>
 <div id="calendar"></div>
 <script src="app/index.js"></script>
 <script src="../lib/main.js"></script>
