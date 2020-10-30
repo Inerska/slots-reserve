@@ -44,7 +44,9 @@ $bapteme = $parse["bapteme"] == 'true';
 
 $db->query("INSERT INTO client(firstname, lastname, phone, mail, activity, bapteme)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]}, '{$parse["mail"]}', '{$parse["activity"]}', '{$bapteme}');");
 
-$date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"]);
+// Just add a certain amount of minutes if the user has chosen bapteme and convert it to Timestamp time value
+$start_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->getTimestamp();
+$end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bapteme ? '+20 minutes' : '+15 minutes')->getTimestamp();
 
 // Link those information to agenda table
-$db->query("INSERT INTO agenda(id_client, cstart, cend)VALUES(LAST_INSERT_ID(), FROM_UNIXTIME({$date->getTimestamp()}), FROM_UNIXTIME({$date->getTimestamp()}));");
+$db->query("INSERT INTO agenda(id_client, cstart, cend)VALUES(LAST_INSERT_ID(), FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");
