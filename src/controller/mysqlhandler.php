@@ -64,5 +64,6 @@ class SQLConnexion
         if (!(is_null($lvalue) || is_null($rvalue_t) || is_null($rvalue_t)))
             $buffer->bindParam($lvalue, $rvalue, $rvalue_t);
         $buffer->execute();
+        return $buffer;
     }
 }
