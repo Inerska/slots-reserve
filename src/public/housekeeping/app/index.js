@@ -28,7 +28,7 @@ function NewPermanence() {
         "start": start_date,
         "end": end_date,
         "display": "background"
-    })
+    });
     calendar.destroy();
     calendar = new FullCalendar.Calendar(calendar_element, {
         initialView: 'timeGridWeek',
@@ -37,4 +37,18 @@ function NewPermanence() {
         nowIndicator: true
     });
     calendar.render();
+    $.post({
+        type: "POST",
+        contentType: "json",
+        url: "../model/post-permanence.php",
+        data: {
+            "author": author,
+            "start": start_date,
+            "end": end_date,
+        },
+        headers: {
+            'Content-Type': 'application/json',
+            'charset': 'utf-8'
+        }
+    });
 }
