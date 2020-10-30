@@ -29,6 +29,7 @@ $db->query("CREATE TABLE IF NOT EXISTS Client(
 
 $db->query("CREATE TABLE IF NOT EXISTS Agenda(
 	id_client 	tinyint unsigned not null,
+	name_perm   varchar(255),
 	cstart		datetime not null,
 	cend		    datetime not null,
 
