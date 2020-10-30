@@ -1,7 +1,6 @@
 let calendar;
 let events = [];
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const calendar_element = document.getElementById('calendar');
     const perm_button = document.getElementById('perm_val');
@@ -11,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     calendar = new FullCalendar.Calendar(calendar_element, {
         initialView: 'timeGridWeek',
         locale: 'fr',
-        events: events
+        events: events,
+        nowIndicator: true
     });
     calendar.render();
 });
@@ -40,7 +40,7 @@ function NewPermanence() {
     $.post({
         type: "POST",
         contentType: "json",
-        url: "../model/post-permanence.php",
+        url: "../../model/post-permanence.php",
         data: {
             "author": author,
             "start": start_date,
