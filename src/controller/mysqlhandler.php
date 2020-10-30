@@ -57,6 +57,7 @@ class SQLConnexion
      * @param string $lvalue
      * @param mixed $rvalue & (passed by reference !)
      * @param mixed $rvalue_t
+     * @return bool|PDOStatement
      */
     public function query($request, $lvalue = null, &$rvalue = null, $rvalue_t = null)
     {
