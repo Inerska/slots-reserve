@@ -7,16 +7,14 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="style.css" rel="stylesheet">
     <link href="//unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../lib/main.css" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css'/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css">
     <title>Housekeeping</title>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='//cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js'></script>
+    <script src="app/index.js"></script>
 </head>
 <body>
-<button class="bg-transparent hover:bg-orange-400 text-orange-400 font-semibold hover:text-white py-2 px-4 rounded border border-orange-400"
-        id="form_validate" type="button">
-    <span>Définir une permanence</span>
-</button>
 <div id="calendar"></div>
-<script src="app/index.js"></script>
-<script src="../lib/main.js"></script>
 </body>
 </html>
