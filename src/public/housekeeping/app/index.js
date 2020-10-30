@@ -25,7 +25,7 @@ function NewPermanence() {
         "title": "Permanence par Jofrey",
         "start": "2020-10-30 08:40:00",
         "end": "2020-10-30 10:45:00",
-        "backgroundColor": "#1b1b1b"
+        "display": "background"
     })
     calendar.destroy();
     calendar = new FullCalendar.Calendar(calendar_element, {
