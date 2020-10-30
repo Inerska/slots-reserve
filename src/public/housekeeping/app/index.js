@@ -18,13 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function NewPermanence() {
-    const today = Date.now();
     const calendar_element = document.getElementById('calendar');
+    const author = prompt("À quel nom ?");
+    const start_date = moment(prompt("Début (DD/MM/YYYY HH:mm) Exemple: 30/10/2020 21:00"), "DD/MM/YYYY HH:mm").format("YYYY-MM-DD HH:mm");
+    const end_date = moment(prompt("Fin (DD/MM/YYYY HH:mm) Exemple: 30/10/2020 22:00"), "DD/MM/YYYY HH:mm").format("YYYY-MM-DD HH:mm");
 
     events.push({
-        "title": "Permanence par Jofrey",
-        "start": "2020-10-30 08:40:00",
-        "end": "2020-10-30 10:45:00",
+        "title": `Permanence par ${author}`,
+        "start": start_date,
+        "end": end_date,
         "display": "background"
     })
     calendar.destroy();
