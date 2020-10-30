@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const calendar_element = document.getElementById('calendar');
     const perm_button = document.getElementById('perm_val');
 
+    $.get('../../model/get_data.php', data => {
+        data = JSON.parse(data);
+        for (let i = 0; i < data.length; ++i) {
+            events.push({
+                "title": "Hey",
+                "start": moment(data[i]['cstart'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                "end": moment(data[i]['cend'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                "backgroundColor": "#FF0000"
+            });
+        }
+        console.log(`events : ${events}`);
+        reloadCalendar();
+    });
+
     perm_button.addEventListener('click', NewPermanence);
 
     calendar = new FullCalendar.Calendar(calendar_element, {
@@ -16,9 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
     calendar.render();
 });
 
+function reloadCalendar() {
+    const calendar_element = document.getElementById('calendar');
+    calendar.destroy();
+    calendar = new FullCalendar.Calendar(calendar_element, {
+        initialView: 'timeGridWeek',
+        locale: 'fr',
+        events: events,
+        nowIndicator: true
+    });
+    calendar.render();
+}
 
 function NewPermanence() {
-    const calendar_element = document.getElementById('calendar');
     const author = prompt("À quel nom ?");
     const start_date = moment(prompt("Début (DD/MM/YYYY HH:mm) Exemple: 30/10/2020 21:00"), "DD/MM/YYYY HH:mm").format("YYYY-MM-DD HH:mm");
     const end_date = moment(prompt("Fin (DD/MM/YYYY HH:mm) Exemple: 30/10/2020 22:00"), "DD/MM/YYYY HH:mm").format("YYYY-MM-DD HH:mm");
@@ -29,14 +53,7 @@ function NewPermanence() {
         "end": end_date,
         "display": "background"
     });
-    calendar.destroy();
-    calendar = new FullCalendar.Calendar(calendar_element, {
-        initialView: 'timeGridWeek',
-        locale: 'fr',
-        events: events,
-        nowIndicator: true
-    });
-    calendar.render();
+    reloadCalendar();
     $.post({
         type: "POST",
         contentType: "json",
