@@ -54,6 +54,6 @@ function send_ajax() {
                 'charset': 'utf-8'
             }
         });
-        // window.location.reload();
+        window.location.href = "page2.html";
     }
 }
