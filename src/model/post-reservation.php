@@ -51,4 +51,4 @@ $end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bap
 
 // Link those information to agenda table
 $db->query("INSERT INTO agenda(id_client, description, cstart, cend)
-                   VALUES(LAST_INSERT_ID(), 'Sénce de {$parse["prename"]} {$parse["name"]}', FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");
+                   VALUES(LAST_INSERT_ID(), '{$parse["prename"]} {$parse["name"]}', FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");
