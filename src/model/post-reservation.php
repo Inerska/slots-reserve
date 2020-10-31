@@ -43,12 +43,17 @@ var_dump($parse);
 // Sending new customer information
 $bapteme = $parse["bapteme"] == 'true';
 
-$db->query("INSERT INTO client(firstname, lastname, phone, mail, activity, bapteme)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]}, '{$parse["mail"]}', '{$parse["activity"]}', '{$bapteme}');");
-
 // Just add a certain amount of minutes if the user has chosen bapteme and convert it to Timestamp time value
-$start_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->getTimestamp();
-$end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bapteme ? '+20 minutes' : '+15 minutes')->getTimestamp();
+$start_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->format("Y-m-d H:i");
+$end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bapteme ? '+20 minutes' : '+15 minutes')->format("Y-m-d H:i");
+
+// Check if permanence
+$request = $db->query("SELECT cstart, cend FROM agenda WHERE cstart < '{$start_date}' AND cend > '{$end_date}'");
+
+echo $request->rowCount() > 0 ? "ok" : "no";
+
+$db->query("INSERT INTO client(firstname, lastname, phone, mail, activity, bapteme)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]}, '{$parse["mail"]}', '{$parse["activity"]}', '{$bapteme}');");
 
 // Link those information to agenda table
 $db->query("INSERT INTO agenda(id_client, description, cstart, cend)
-                   VALUES(LAST_INSERT_ID(), '{$parse["prename"]} {$parse["name"]}', FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");
+                   VALUES(LAST_INSERT_ID(), '{$parse["prename"]} {$parse["name"]}', '{$start_date}', '{$end_date}');");
