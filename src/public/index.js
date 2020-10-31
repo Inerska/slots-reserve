@@ -55,11 +55,8 @@ function send_ajax() {
                 'charset': 'utf-8'
             },
             success: function (response) {
-                condition_ok = response === "ok"
+                alert(!response === "ok" ? 'Aucun administrateur n\'est présent pendant ce créneau, merci de choisir une autre tranche horaire.' : 'Votre séance a été enregistrée. A bientôt !');
             }
         });
-        // Check get
-        // if yes : do nothing
-        // if no : redo ur creneau
     }
 }
