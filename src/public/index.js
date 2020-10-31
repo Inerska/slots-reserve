@@ -35,7 +35,6 @@ function GetTipErrorMessage(element) {
 }
 
 function send_ajax() {
-    let condition_ok = false;
     if (!areInputsNull()) {
         $.ajax({
             type: "POST",
