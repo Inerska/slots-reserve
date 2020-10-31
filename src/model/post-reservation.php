@@ -50,4 +50,5 @@ $start_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->getTimest
 $end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bapteme ? '+20 minutes' : '+15 minutes')->getTimestamp();
 
 // Link those information to agenda table
-$db->query("INSERT INTO agenda(id_client, cstart, cend)VALUES(LAST_INSERT_ID(), FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");
+$db->query("INSERT INTO agenda(id_client, description, cstart, cend)
+                   VALUES(LAST_INSERT_ID(), 'Sénce de {$parse["prename"]} {$parse["name"]}', FROM_UNIXTIME({$start_date}), FROM_UNIXTIME({$end_date}));");

@@ -8,14 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     $.get('../../model/get_data.php', data => {
         data = JSON.parse(data);
         for (let i = 0; i < data.length; ++i) {
-            events.push({
-                "title": data[i]['description'],
-                "start": moment(data[i]['cstart'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
-                "end": moment(data[i]['cend'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
-                "backgroundColor": "#FF0000"
-            });
+            if (data[i]['description'].includes('Permanence')) {
+                events.push({
+                    "title": data[i]['description'],
+                    "start": moment(data[i]['cstart'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                    "end": moment(data[i]['cend'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                    "display": "background"
+                });
+            } else {
+                events.push({
+                    "title": data[i]['description'],
+                    "start": moment(data[i]['cstart'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                    "end": moment(data[i]['cend'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
+                    "backgroundColor": "#FF0000"
+                });
+            }
         }
-        console.log(`events : ${events}`);
         reloadCalendar();
     });
 
