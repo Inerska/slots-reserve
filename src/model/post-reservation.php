@@ -38,7 +38,6 @@ $db->query("CREATE TABLE IF NOT EXISTS Agenda(
 );");
 
 $parse = InputGuard::parseRequest(file_get_contents('php://input'));
-var_dump($parse);
 
 // Sending new customer information
 $bapteme = $parse["bapteme"] == 'true';

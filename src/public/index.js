@@ -35,8 +35,9 @@ function GetTipErrorMessage(element) {
 }
 
 function send_ajax() {
+    let condition_ok = false;
     if (!areInputsNull()) {
-        $.post({
+        $.ajax({
             type: "POST",
             contentType: "json",
             url: "../model/post-reservation.php",
@@ -52,8 +53,13 @@ function send_ajax() {
             headers: {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
+            },
+            success: function (response) {
+                condition_ok = response === "ok"
             }
         });
-        //window.location.href = "page2.html";
+        // Check get
+        // if yes : do nothing
+        // if no : redo ur creneau
     }
 }
