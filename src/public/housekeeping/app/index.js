@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data = JSON.parse(data);
         for (let i = 0; i < data.length; ++i) {
             events.push({
-                "title": "Hey",
+                "title": data[i]['description'],
                 "start": moment(data[i]['cstart'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
                 "end": moment(data[i]['cend'], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD HH:mm"),
                 "backgroundColor": "#FF0000"
