@@ -50,9 +50,11 @@ $end_date = DateTime::createFromFormat('Y-m-d H:i', $parse["date"])->modify($bap
 $request = $db->query("SELECT cstart, cend FROM agenda WHERE cstart < '{$start_date}' AND cend > '{$end_date}'");
 
 echo $request->rowCount() > 0 ? "ok" : "no";
+if ($request->rowCount() > 0) {
 
-$db->query("INSERT INTO client(firstname, lastname, phone, mail, activity, bapteme)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]}, '{$parse["mail"]}', '{$parse["activity"]}', '{$bapteme}');");
+    $db->query("INSERT INTO client(firstname, lastname, phone, mail, activity, bapteme)VALUES('{$parse["prename"]}', '{$parse["name"]}', {$parse["phone"]}, '{$parse["mail"]}', '{$parse["activity"]}', '{$bapteme}');");
 
 // Link those information to agenda table
-$db->query("INSERT INTO agenda(id_client, description, cstart, cend)
+    $db->query("INSERT INTO agenda(id_client, description, cstart, cend)
                    VALUES(LAST_INSERT_ID(), '{$parse["prename"]} {$parse["name"]}', '{$start_date}', '{$end_date}');");
+}
